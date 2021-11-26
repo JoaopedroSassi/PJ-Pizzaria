@@ -90,6 +90,37 @@ html, body {
    margin-bottom: 0;
 }
 
+/* Dashboard */
+.delete-btn, .update-btn{
+   border: none;
+   background-color: transparent;
+}
+
+.delete-btn{
+   padding-top: 5px;
+   color: #721c24;
+   font-size: 25px;
+}
+
+.update-btn{
+   color: #004085;
+   margin-left: 10px;
+   font-size: 25px;
+}
+
+.update-form{
+   display: flex;
+   flex-direction: row;
+}
+
+.status-input{
+   width: 65%;
+}
+
+.table ul {
+   text-align: left;
+}
+
 /* Footer */
 footer{
    position: relative;
