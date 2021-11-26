@@ -63,6 +63,31 @@
       $status = $statusQuery->fetchAll();
       
    } elseif ($method === "POST"){
+      $type = $_POST['type'];
+      $pizzaId = $_POST['id'];
+
+      if ($type === "delete") {
+         $deleteQuery = $conn->prepare("DELETE FROM pedidos WHERE pizza_id = :pizza_id;");
+         $deleteQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+         $deleteQuery->execute();
+
+         $_SESSION['msg'] = "Pedido removido com sucesso!";
+         $_SESSION['status'] = "success";
+      } elseif ($type === "update"){
+         $statusId = $_POST['status'];
+
+         $updateQuery = $conn->prepare("UPDATE pedidos SET status_id = :status_id WHERE pizza_id = :pizza_id");
+
+         $updateQuery->bindParam(":pizza_id", $pizzaId, PDO::PARAM_INT);
+         $updateQuery->bindParam(":status_id", $statusId, PDO::PARAM_INT);
+
+         $updateQuery->execute();
+
+         $_SESSION['msg'] = "Pedido atualizado com sucesso!";
+         $_SESSION['status'] = "success";
+      }
+
+      header("Location: ../dashboard.php");
 
    }
 

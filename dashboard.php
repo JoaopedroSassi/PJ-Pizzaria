@@ -2,7 +2,7 @@
    include_once('templates/header.php');
    include_once('process/orders.php');
 ?>
-   <div id="main-container">
+   <div id="main-container" class="container-dashboard">
       <div class="container">
          <div class="row">
             <div class="col-md-12">
@@ -34,7 +34,7 @@
                               </ul>
                            </td>
                            <td>
-                              <form action="process/order.php" method="POST" class="form-group update-form">
+                              <form action="process/orders.php" method="POST" class="form-group update-form">
                                  <input type="hidden" name="type" value="update">
                                  <input type="hidden" name="id" value="<?php echo $pizza['id'] ?>">
                                  <select name="status" class="form-control status-input">
