@@ -15,17 +15,26 @@
                      <label for="borda">Borda:</label>
                      <select class="form-control" name="borda" id="borda">
                         <option value="">Selecione a borda</option>
+                        <?php foreach($bordas as $borda): ?>
+                           <option value="<?php echo $borda['id'] ?>"><?php echo $borda['tipo'] ?></option>
+                        <?php endforeach; ?>
                      </select>
                   </div>
                   <div class="form-group">
                      <label for="massa">Massa:</label>
                      <select class="form-control" name="massa" id="massa">
                         <option value="">Selecione a massa</option>
+                        <?php foreach($massas as $massa): ?>
+                           <option value="<?php echo $massa['id'] ?>"><?php echo $massa['tipo'] ?></option>
+                        <?php endforeach; ?>
                      </select>
                   </div>
                   <div class="form-group">
                      <label for="sabores">Sabores: (Máximo 3)</label>
                      <select class="form-control" name="sabores[]" id="sabores" multiple>
+                     <?php foreach($sabores as $sabor): ?>
+                           <option value="<?php echo $sabor['id'] ?>"><?php echo $sabor['nome'] ?></option>
+                        <?php endforeach; ?>
                      </select>
                   </div>
                   <div class="form-group">
