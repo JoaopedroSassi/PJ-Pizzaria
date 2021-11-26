@@ -1,5 +1,12 @@
-html, body {
+html{
    height: 100%;
+   min-height: 100%;
+}
+
+body{
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
 }
 
 /* Navbar */
@@ -91,6 +98,10 @@ html, body {
 }
 
 /* Dashboard */
+.container-dashboard{
+   margin-bottom: 217px;
+}
+
 .delete-btn, .update-btn{
    border: none;
    background-color: transparent;
@@ -132,4 +143,5 @@ footer{
    align-items: center;
    justify-content: center;
    font-weight: bold;
+   margin-top: auto;
 }
