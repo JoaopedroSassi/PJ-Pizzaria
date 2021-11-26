@@ -1,5 +1,6 @@
 <?php 
    include_once('templates/header.php');
+   include_once('process/orders.php');
 ?>
    <div id="main-container">
       <div class="container">
@@ -20,33 +21,43 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <tr>
-                        <td>#1</td>
-                        <td>Cheddar</td>
-                        <td>Integral</td>
-                        <td>4 Queijos</td>
-                        <td>
-                           <form action="process/order.php" method="POST" class="form-group update-form">
-                              <input type="hidden" name="type" value="update">
-                              <input type="hidden" name="id" value="1">
-                              <select name="status" class="form-control status-input">
-                                 <option value="">Entrega</option>
-                              </select>
-                              <button type="submit" class="update-btn">
-                                 <ion-icon name="refresh-outline"></ion-icon>
-                              </button>
-                           </form>
-                        </td>
-                        <td>
-                           <form action="process/orders.php" method="POST">
-                              <input type="hidden" name="type" value="delete">
-                              <input type="hidden" name="id" value="1">
-                              <button type="submit" class="delete-btn">
-                                 <ion-icon name="close-outline"></ion-icon>
-                              </button>
-                           </form>
-                        </td>
-                     </tr>
+                     <?php foreach ($pizzas as $pizza): ?>
+                        <tr>
+                           <td><?php echo $pizza['id'] ?></td>
+                           <td><?php echo $pizza['borda'] ?></td>
+                           <td><?php echo $pizza['massa'] ?></td>
+                           <td>
+                              <ul>
+                                 <?php foreach ($pizza['sabores'] as $sabor): ?>
+                                    <li><?php echo $sabor ?></li>
+                                 <?php endforeach; ?> 
+                              </ul>
+                           </td>
+                           <td>
+                              <form action="process/order.php" method="POST" class="form-group update-form">
+                                 <input type="hidden" name="type" value="update">
+                                 <input type="hidden" name="id" value="<?php echo $pizza['id'] ?>">
+                                 <select name="status" class="form-control status-input">
+                                 <?php foreach($status as $s): ?>
+                                    <option value="<?= $s['id'] ?>" <?php echo ($s['id'] == $pizza['status']) ? "selected" : ""; ?> ><?= $s['tipo'] ?></option>
+                                 <?php endforeach; ?>
+                                 </select>
+                                 <button type="submit" class="update-btn">
+                                    <ion-icon name="refresh-outline"></ion-icon>
+                                 </button>
+                              </form>
+                           </td>
+                           <td>
+                              <form action="process/orders.php" method="POST">
+                                 <input type="hidden" name="type" value="delete">
+                                 <input type="hidden" name="id" value="<?php echo $pizza['id'] ?>">
+                                 <button type="submit" class="delete-btn">
+                                    <ion-icon name="close-outline"></ion-icon>
+                                 </button>
+                              </form>
+                           </td>
+                        </tr>
+                     <?php endforeach; ?> 
                   </tbody>
                </table>
             </div>
