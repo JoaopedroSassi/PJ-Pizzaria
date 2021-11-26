@@ -12,5 +12,16 @@
 </head>
 <body>
    <header>
-      <p>Cabeçalho</p>
+      <nav class="navbar navbar-expand-lg">
+         <a href="index.php" class="navbar-brand">
+         <img src="img/pizza.svg" alt="Pizzaria do João" id="brand-logo">
+         </a>
+         <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav">
+            <li class="nav-item active">
+               <a href="index.php" class="nav-link">Peça sua pizza</a>
+            </li>
+         </ul>
+         </div>
+      </nav>
    </header>
