@@ -145,3 +145,49 @@ footer{
    font-weight: bold;
    margin-top: auto;
 }
+
+/* Responsivo*/
+@media(max-width: 425px){
+   #main-banner{
+      background-position-y: 0;
+   }
+
+   #main-banner h1{
+      padding: 10px;
+   }
+
+   #main-container{
+      margin-bottom: 0;
+      font-size: 14px;
+   }
+
+   #main-container .container{
+      padding: 10px;
+   }
+
+   .form-group .btn.btn-primary{
+      width: 100%;
+      height: 50px;
+      margin-top: 15px;
+   }
+
+   .table-container{
+      padding: 0;
+   }
+
+   .table td, .table th{
+      padding: .5rem;
+   }
+
+   th span{
+      display: none;
+   }
+
+   .table thead th:nth-child(5),
+   .table thead th:nth-child(6),
+   .table tbody td:nth-child(5),
+   .table tbody td:nth-child(6){
+      display: none;
+   }
+
+}
